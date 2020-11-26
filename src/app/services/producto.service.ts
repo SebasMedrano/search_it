@@ -7,7 +7,7 @@ import { Producto } from '../Models/producto';
 const httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json',
                                                'Access-Control-Allow-Origin':'*',
                                                'Access-Control-Allow-Methods': 'POST'})};
-const root_url = "https://search-it-api.herokuapp.com";
+const root_url = "search-it-api.herokuapp.com";
 
 @Injectable({
   providedIn: 'root'
