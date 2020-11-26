@@ -389,6 +389,7 @@ __webpack_require__.r(__webpack_exports__);
 const httpOptions = { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST' }) };
+const base_route = "https://search-it-api.herokuapp.com";
 class ProductoService {
     constructor(http) {
         this.http = http;
@@ -397,24 +398,24 @@ class ProductoService {
     //   return this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts?_limit=6');
     // }
     getProductsByComputacion() {
-        return this.http.get('http://127.0.0.1:5000/products/computacion');
+        return this.http.get(base_route + '/products/computacion');
     }
     getProductsByElectrodomestico() {
-        return this.http.get('http://127.0.0.1:5000/products/electrodomestico');
+        return this.http.get(base_route + '/products/electrodomestico');
     }
     getProductsByElectronico() {
-        return this.http.get('http://127.0.0.1:5000/products/electronicos');
+        return this.http.get(base_route + '/products/electronicos');
     }
     addProduct(product) {
-        let postProduct = 'http://127.0.0.1:5000/products/';
+        let postProduct = base_route + '/products/';
         return this.http.post(postProduct, product, httpOptions);
     }
     getProductsAll() {
-        return this.http.get("http://127.0.0.1:5000/products/");
+        return this.http.get(base_route + "/products/");
     }
     getProductSearched(buscado) {
         console.log(buscado);
-        return this.http.get('http://127.0.0.1:5000/productsOrdered/'.concat(buscado));
+        return this.http.get(base_route + '/productsOrdered/'.concat(buscado));
     }
 }
 ProductoService.ɵfac = function ProductoService_Factory(t) { return new (t || ProductoService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
