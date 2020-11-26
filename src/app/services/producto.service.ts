@@ -7,7 +7,7 @@ import { Producto } from '../Models/producto';
 const httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json',
                                                'Access-Control-Allow-Origin':'*',
                                                'Access-Control-Allow-Methods': 'POST'})};
-const root_url = "https://search-it-api.herokuapp.com";
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,29 +21,29 @@ export class ProductoService {
   // }
 
   getProductsByComputacion(){
-    return this.http.get<any[]>(root_url + '/products/computacion')
+    return this.http.get<any[]>('http://127.0.0.1:5000/products/computacion')
   }
 
   getProductsByElectrodomestico(){
-    return this.http.get<any[]>(root_url + '/products/electrodomestico')
+    return this.http.get<any[]>('http://127.0.0.1:5000/products/electrodomestico')
   }
 
   getProductsByElectronico(){
-    return this.http.get<any[]>(root_url + '/products/electronicos')
+    return this.http.get<any[]>('http://127.0.0.1:5000/products/electronicos')
   }
 
   addProduct(product: Producto){
-    let postProduct = root_url + '/products/'
+    let postProduct = 'http://127.0.0.1:5000/products/'
     return this.http.post<Producto>(postProduct, product, httpOptions)
   }
 
   getProductsAll(){
-    return this.http.get<any[]>(root_url + "/products/")
+    return this.http.get<any[]>("http://127.0.0.1:5000/products/")
   }
 
   getProductSearched(buscado:string){
     console.log(buscado)
-    return this.http.get<any[]>(root_url + '/productsOrdered/'.concat(buscado)) 
+    return this.http.get<any[]>('http://127.0.0.1:5000/productsOrdered/'.concat(buscado)) 
   }
 
   // http://127.0.0.1:5000/products
